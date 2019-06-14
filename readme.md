@@ -17,7 +17,7 @@ import {optional, optionalFn} from "@trapcode/proxyjs";
 ```
 
 ### Why ProxyJs
-When working with api's or objects, in some cases you may not know if a value optional on an object
+When working with api's or objects, in some cases you may not know if a value exists on an object
 and it will result to doing something like
 
 ```javascript
@@ -30,7 +30,7 @@ if(!SomeObject.name) { requiredValue = "Guest" }
 if(!SomeObject.hasOwnProperty('name')) { requiredValue = "Guest" }
 ```
 
-With ProxyJs using [Javascript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) `.get` pure javascript function;
+With **ProxyJs** using [Pure Javascript Proxy Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
 ```javascript
 const {optional, optionalFn} = require('@trapcode/proxyjs');
@@ -40,7 +40,7 @@ let requiredValue = optional(SomeObject, 'default value').name;
 
 ### Example
 ```javascript
-const {optional} = require('./index');
+const {optional} = require('@trapcode/proxyjs');
 
 const data = {
     message: "Hello World",
