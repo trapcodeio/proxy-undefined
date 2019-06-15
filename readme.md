@@ -17,7 +17,7 @@ import {optional, optionalFn} from "proxy-undefined";
 ```
 
 ### Why ProxyUndefined
-When working with api's or objects, in some cases you may not know if a value exists on an object
+When working with api's or objects, in some cases you may not know if a value exists in an object
 and it will result to doing something like
 
 ```javascript
@@ -30,7 +30,8 @@ if(!requiredValue) { requiredValue = "Guest" }
 if(!SomeObject.hasOwnProperty('name')) { requiredValue = "Guest" }
 ```
 
-With **ProxyUndefined** using [Pure Javascript Proxy Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+With **ProxyUndefined** using [Javascript Proxy Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy),
+all undefined paths will be replaced with the value you set as default.
 
 ```javascript
 const {optional, optionalFn} = require('proxy-undefined');
@@ -61,7 +62,7 @@ data.foo();
 // => Foo function was called
 
 //////////////////////////
-// Using data.name which does not exists
+// Using data.name (undefined)
 console.log(data.name);
 // => undefined
 
@@ -73,7 +74,7 @@ console.log(optional(data, 'John Doe').name);
 
 
 //////////////////////////
-// Using  data.message which exists.
+// Using  data.message (defined)
 console.log(optional(data).message);
 // => Hello World
 
@@ -97,6 +98,7 @@ data.getFullName();
 // Using `optionalFn`
 optionalFn(data).getFullName();
 // => undefined
+// No Fatal Errors.
 
 optionalFn(data, () => console.log('John P. Doe')).getFullName();
 // => John P. Doe
