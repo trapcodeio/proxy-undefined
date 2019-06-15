@@ -1,7 +1,7 @@
 {
   "name": "proxy-undefined",
   "description": "Return default value for object properties that does not exists i.e is undefined.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "repository": "https://github.com/trapcodeio/proxy-undefined.git",
