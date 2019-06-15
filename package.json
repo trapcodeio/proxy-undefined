@@ -1,7 +1,7 @@
 {
   "name": "proxy-undefined",
   "description": "Easily Set default data for optional values in object.",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "repository": "https://github.com/trapcodeio/ProxyUndefined.git",
