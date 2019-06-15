@@ -1,46 +1,46 @@
-## ProxyJs
+## ProxyUndefined
 
-Return default value for object properties that does not optional.
+Return default value for object properties that does not exists i.e is **undefined**.
 
 ### Install
 ```console
-npm install @trapcode/proxyjs
+npm install proxy-undefined
 
-yarn add @trapcode/proxyjs
+yarn add proxy-undefined
 ```
 
 ### Usage
 ```javascript
-const {optional, optionalFn} = require("@trapcode/proxyjs");
+const {optional, optionalFn} = require("proxy-undefined");
 // Or
-import {optional, optionalFn} from "@trapcode/proxyjs";
+import {optional, optionalFn} from "proxy-undefined";
 ```
 
-### Why ProxyJs
+### Why ProxyUndefined
 When working with api's or objects, in some cases you may not know if a value exists on an object
 and it will result to doing something like
 
 ```javascript
 let requiredValue = SomeObject.name;
 
-if(!SomeObject.name) { requiredValue = "Guest" }
+if(!requiredValue) { requiredValue = "Guest" }
 
 // Or
 
 if(!SomeObject.hasOwnProperty('name')) { requiredValue = "Guest" }
 ```
 
-With **ProxyJs** using [Pure Javascript Proxy Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+With **ProxyUndefined** using [Pure Javascript Proxy Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
 ```javascript
-const {optional, optionalFn} = require('@trapcode/proxyjs');
+const {optional, optionalFn} = require('proxy-undefined');
 
 let requiredValue = optional(SomeObject, 'default value').name;
 ```
 
 ### Example
 ```javascript
-const {optional} = require('@trapcode/proxyjs');
+const {optional} = require('proxy-undefined');
 
 const data = {
     message: "Hello World",
@@ -54,14 +54,14 @@ const data = {
     }
 };
 
-console.log(data.message);
+console.log(data.message);;
 // => Hello World
 
 data.foo();
 // => Foo function was called
 
 //////////////////////////
-// Using data.name that does not exists
+// Using data.name which does not exists
 console.log(data.name);
 // => undefined
 
@@ -73,7 +73,7 @@ console.log(optional(data, 'John Doe').name);
 
 
 //////////////////////////
-// Using  data.message that exists.
+// Using  data.message which exists.
 console.log(optional(data).message);
 // => Hello World
 
@@ -110,22 +110,22 @@ console.log(optionalFn(data, 'john@doe.com').getEmail());
 #### Fn: exists/optional
 Checks if path exists in object else returns `[default=undefined]`
 ```javascript
-const {exist} = require("@trapcode/proxyjs");
+const {exist} = require("proxy-undefined");
 
 // is same as below, just an alias.
 
 
-const {optional} = require("@trapcode/proxyjs");
+const {optional} = require("proxy-undefined");
 ```
 
 #### Fn: fnExists/optionalFn
 Checks if function exists else returns `[default=() => undefined]`
 ```javascript
-const {fnExist} = require("@trapcode/proxyjs");
+const {fnExist} = require("proxy-undefined");
 
 // is same as below, just an alias.
 
-const {optionalFn} = require("@trapcode/proxyjs");
+const {optionalFn} = require("proxy-undefined");
 ```
 
 Hope you find this Useful. :)
